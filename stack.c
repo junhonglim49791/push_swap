@@ -6,7 +6,7 @@
 /*   By: junlim <junlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 17:47:24 by junlim            #+#    #+#             */
-/*   Updated: 2026/10/04 23:20:08 by junlim           ###   ########.fr       */
+/*   Updated: 2026/10/07 09:25:17 by junlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,38 @@ void	ft_doubly_lstadd_back(t_stack *stack, t_node *new)
 	stack -> size++;
 }
 
+// Since no traverse is needed, can just add it to the back,
+// reasign stack->to
+void	ft_doubly_add_front(t_stack *stack, t_node *new)
+{
+	ft_doubly_lstadd_back(stack, new);
+	stack->top = new;
+}
+
+// void	ft_doubly_add_front(t_stack *stack, t_node *new)
+// {
+// 	t_node	*last;
+
+// 	last = NULL;
+// 	if (stack == NULL || new == NULL)
+// 		return ;
+// 	if (stack->size == 0)
+// 	{
+// 		stack->top = new;
+// 		stack->top->next = new;
+// 		stack->top->prev = new;
+// 	}
+// 	else
+// 	{
+// 		last = stack->top->prev;
+// 		new->next = stack->top;
+// 		new->prev = last;
+// 		stack->top->prev = new;
+// 		last->next = new;
+// 		stack->top = new;
+// 	}
+// 	stack -> size++;
+// }
 /*
 stack->top = NULL; is need to avoid dangling, since temp also becomes
 the last node when size == 1
