@@ -29,8 +29,16 @@ $(NAME): $(OBJS)
 %.o: %.c ft_printf/ft_printf.h
 	cc $(CFLAGS) -c -I ./libft -I ./ft_printf $< -o $@ 
 
-run:
-	cc $(CFLAGS) -I ./libft -I ./ft_printf $(MAIN) $(NAME) && ./a.out
+# gdb runs on the compiled program, i.e gdb ./a.out.
+# if a.out is not compiled with -g, then mapping of
+# source lines to machine address is not known.
+# Example:
+# 	 main.c:4  has runtime address of 0x40112a
+# Without -g, gdb cannot recognize 0x40112a as line 4 
+# of main.c, so machine address is needed to set breakpoint.
+# set the breakpoint at machine code level.
+debug:
+	cc -g $(CFLAGS) -I ./libft -I ./ft_printf $(MAIN) $(NAME)
 
 fclean: clean
 	make fclean -C ./libft
@@ -45,4 +53,4 @@ re: fclean all
 valgrind:
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./a.out
 
-.PHONY: all clean fclean re valgrind run
+.PHONY: all clean fclean re valgrind debug

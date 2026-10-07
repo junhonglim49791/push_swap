@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   reverse_rotation.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junlim <junlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/15 20:49:24 by junlim            #+#    #+#             */
-/*   Updated: 2026/10/06 12:50:22 by junlim           ###   ########.fr       */
+/*   Created: 2026/10/07 08:53:38 by junlim            #+#    #+#             */
+/*   Updated: 2026/10/07 08:53:51 by junlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "ft_printf.h"
-
-typedef struct s_node
+void	rra(t_stack *stack)
 {
-	int				num;
-	int				index;
-	struct s_node	*prev;
-	struct s_node	*next;
-}				t_node;
+	if (!stack || stack->size < 2)
+		return ;
+	stack -> top = stack -> top -> prev;
+}
 
-typedef struct s_stack
+void	rrb(t_stack *stack)
 {
-	t_node	*top;
-	int		size;
-}				t_stack;
+	if (!stack || stack->size < 2)
+		return ;
+	stack -> top = stack -> top -> prev;
+}
 
-//linked list manipulation
-t_node	*ft_doubly_lstnew(int data);
-void	ft_doubly_lstadd_back(t_stack *stack, t_node *new);
-void	ft_clearstack(t_stack *stack);
-
-#endif 
+void	rrr(t_stack *stack_a, t_stack *stack_b)
+{
+	rra(stack_a);
+	rrb(stack_b);
+}

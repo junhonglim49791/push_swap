@@ -6,7 +6,7 @@
 /*   By: junlim <junlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 17:47:24 by junlim            #+#    #+#             */
-/*   Updated: 2026/10/04 19:24:49 by junlim           ###   ########.fr       */
+/*   Updated: 2026/10/04 23:20:08 by junlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,9 @@ when 1 node if left in a circular doubly linkedlst, below 3 is equal:
 		stack -> top = new
 		stack -> top -> next
 		stack -> top -> prev
+
+since the node that temp is poiniting if freed, and temp doesn't survive
+after ft_clearstack, no memory leak.	
 */
 void	ft_clearstack(t_stack *stack)
 {
