@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotations.c                                        :+:      :+:    :+:   */
+/*   rotation.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junlim <junlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 20:25:01 by junlim            #+#    #+#             */
-/*   Updated: 2026/10/07 08:54:18 by junlim           ###   ########.fr       */
+/*   Updated: 2026/10/08 17:12:11 by junlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,20 @@ void	rr(t_stack *stack_a, t_stack *stack_b)
 }
 
 // Share with reverse_rotation.c
-// void	print_each_node_num(char *str, t_stack stack)
-// {
-// 	int	i;
-// 	t_node *cur;
+void	print_each_node_num(char *str, t_stack stack)
+{
+	int		i;
+	t_node	*cur;
 
-// 	i = 0;
-// 	cur = stack.top;
-// 	ft_printf(str);
-// 	while (i++ < stack.size)
-// 	{
-// 		ft_printf("%d ", cur->num);
-// 		cur = cur->next;
-// 	}
-// }
+	i = 0;
+	cur = stack.top;
+	ft_printf(str);
+	while (i++ < stack.size)
+	{
+		ft_printf("%d ", cur->num);
+		cur = cur->next;
+	}
+}
 
 // int	main(void)
 // {

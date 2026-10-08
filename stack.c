@@ -6,7 +6,7 @@
 /*   By: junlim <junlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 17:47:24 by junlim            #+#    #+#             */
-/*   Updated: 2026/10/07 09:25:17 by junlim           ###   ########.fr       */
+/*   Updated: 2026/10/08 16:34:47 by junlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_node	*ft_doubly_lstnew(int data)
 	if (!new)
 		return (NULL);
 	new -> num = data;
-	new -> index = -1;
+	new -> sorted_index = -1;
 	new -> next = NULL;
 	new -> prev = NULL;
 	return (new);
@@ -49,13 +49,13 @@ void	ft_doubly_lstadd_back(t_stack *stack, t_node *new)
 
 // Since no traverse is needed, can just add it to the back,
 // reasign stack->to
-void	ft_doubly_add_front(t_stack *stack, t_node *new)
+void	ft_doubly_lstadd_front(t_stack *stack, t_node *new)
 {
 	ft_doubly_lstadd_back(stack, new);
 	stack->top = new;
 }
 
-// void	ft_doubly_add_front(t_stack *stack, t_node *new)
+// void	ft_doubly_lstadd_front(t_stack *stack, t_node *new)
 // {
 // 	t_node	*last;
 
@@ -124,7 +124,7 @@ void	ft_clearstack(t_stack *stack)
 // 	ft_printf("forward:  ");
 // 	while (i++ < a.size)
 // 	{
-// 		ft_printf("num:%d index: %d ", cur->num, cur->index);
+// 		ft_printf("num:%d index: %d ", cur->num, cur->sorted_index);
 // 		ft_printf(" | ");
 // 		cur = cur->next;
 // 	}
@@ -133,10 +133,11 @@ void	ft_clearstack(t_stack *stack)
 // 	ft_printf("\nbackward: ");
 // 	while (i++ < a.size)
 // 	{
-// 		ft_printf("num:%d index: %d ", cur->num, cur->index);
+// 		ft_printf("num:%d index: %d ", cur->num, cur->sorted_index);
 // 		ft_printf(" | ");
 // 		cur = cur->prev;
 // 	}
+// 	ft_printf("\nfirst node prev: %d", a.top->prev->num);
 // 	ft_printf("\nlast node next: %d", a.top->prev->next->num);
 // 	ft_clearstack(&a);
 // 	ft_printf("\nafter clear: size = %d, top = %p\n", a.size, (void *)a.top);
