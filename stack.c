@@ -6,12 +6,12 @@
 /*   By: junlim <junlim@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 17:47:24 by junlim            #+#    #+#             */
-/*   Updated: 2026/10/08 16:34:47 by junlim           ###   ########.fr       */
+/*   Updated: 2026/10/08 17:43:54 by junlim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+//test
 t_node	*ft_doubly_lstnew(int data)
 {
 	t_node	*new;
